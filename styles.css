@@ -1,0 +1,68 @@
+body {
+  background: black;
+}
+.contenedor {
+  display: flex;
+  justify-content: center;
+}
+canvas {
+  background: transparent;
+  border: 3px white solid;
+  justify-content: center;
+}
+h1 {
+  text-align: center;
+  color: white;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 250px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(193, 48, 95, 0.14);
+}
+.modal-content {
+  text-align: center;
+  background: rgba(92, 14, 14, 0.479);
+  margin: auto;
+  padding: 5px;
+  border: 3px solid rgba(255, 30, 0, 0.356);
+  width: 400px;
+  border-radius: 20px;
+}
+#modal2 {
+  display: block;
+}
+.moral-start {
+  background-color: rgba(30, 54, 141, 0.14);
+}
+
+.modal-content-start {
+  background-color: blue;
+}
+.modal-content > p {
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+}
+
+.modal-content > h2 {
+  margin-top: 10px;
+  font-size: xx-large;
+  color: rgb(255, 255, 255);
+}
+
+#my-btn {
+  background: #af6cb4;
+  border: none;
+  margin: 10px;
+  font-size: large;
+  border-radius: 30px;
+  width: 100px;
+  height: 30px;
+}
