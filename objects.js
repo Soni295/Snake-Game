@@ -2,20 +2,21 @@ function Snake() {
   this.start = () => {
     this.position = { x: 0, y: 0 };
     this.direction = { x: scale, y: 0 };
-    this.ate = 0;
+    this.ate = 4;
     this.tail = [];
     this.pause = false;
+    this.draw();
   };
 
-  this.draw = (color = "#FFFFFF") => {
-    context.fillStyle = color;
-
+  this.draw = () => {
+    context.fillStyle = "#FFFFFF";
     context.fillRect(this.position.x, this.position.y, scale, scale);
-    try {
-      for (let i = 0; i < this.tail.length; i++) {
+
+    for (let i = 0; i < this.tail.length; i++) {
+      try {
         context.fillRect(this.tail[i]["x"], this.tail[i]["y"], scale, scale);
-      }
-    } catch {}
+      } catch {}
+    }
   };
 
   this.update = () => {
@@ -58,21 +59,26 @@ function Snake() {
   };
 
   this.turn = (arrow) => {
-    if (arrow === "ArrowUp" && this.direction.y !== scale) {
+    this.neck = snake.tail[snake.tail.length - 1];
+    if (arrow === "ArrowUp" && this.position.y !== this.neck.y + scale) {
       this.direction.x = 0;
       this.direction.y = -scale * 1;
-    } else if (arrow === "ArrowDown" && this.direction.y !== -scale) {
+    }
+    if (arrow === "ArrowDown" && this.position.y !== this.neck.y - scale) {
       this.direction.x = 0;
       this.direction.y = scale * 1;
-    } else if (arrow === "ArrowRight" && this.direction.x !== -scale) {
+    }
+    if (arrow === "ArrowRight" && this.position.x !== this.neck.x - scale) {
       this.direction.x = scale * 1;
       this.direction.y = 0;
-    } else if (arrow === "ArrowLeft" && this.direction.x !== scale) {
+    }
+    if (arrow === "ArrowLeft" && this.position.x !== this.neck.x + scale) {
       this.direction.x = -scale * 1;
       this.direction.y = 0;
     } else if (arrow === "p") this.stop();
   };
 }
+
 function Limited() {
   this.iAmAlive = (python) => {
     this.finite(python);
@@ -80,22 +86,21 @@ function Limited() {
   };
 
   this.start = (python, food) => {
+    launch.style.display = "none";
+    tryAgain.style.display = "none";
+    context.clearRect(0, 0, screen.width, screen.height);
     python.start();
-    this.gameOver();
     food.spawn();
-  };
-
-  this.gameOver = () => {
-    this.freezed = !this.freezed;
+    this.endGame = false;
+    game();
   };
 
   this.lose = (python) => {
-    modal.style.display = "block";
+    tryAgain.style.display = "block";
     python.direction.x = 0;
     python.direction.y = 0;
-    this.gameOver();
+    this.endGame = true;
   };
-  this.stopGame = () => {};
 
   this.infinite = (python) => {
     if (python.position.x > screen.width - scale) {
@@ -124,13 +129,15 @@ function Limited() {
   };
 
   this.iAmNotFood = (python) => {
-    for (let i = 0; i < python.tail.length; i++) {
-      python.tail[i];
-      if (
-        python.tail[i].x === python.position.x &&
-        python.tail[i].y === python.position.y
-      ) {
-        this.lose(python);
+    if (python.tail[0]) {
+      for (let i = 0; i < python.tail.length; i++) {
+        python.tail[i];
+        if (
+          python.tail[i].x === python.position.x &&
+          python.tail[i].y === python.position.y
+        ) {
+          this.lose(python);
+        }
       }
     }
   };
@@ -142,10 +149,11 @@ function Egg() {
       scale * (Math.floor((Math.random() * screen.height) / scale - 1) + 1);
     this.y =
       scale * (Math.floor((Math.random() * screen.width) / scale - 1) + 1);
+    this.draw();
   };
 
-  this.draw = () => {
-    context.fillStyle = "#00ff14";
+  this.draw = (color = "#00ff14") => {
+    context.fillStyle = color;
     context.fillRect(this.x, this.y, scale, scale);
   };
 
@@ -154,3 +162,7 @@ function Egg() {
     return false;
   };
 }
+
+let snake = new Snake();
+let egg = new Egg();
+let limited = new Limited();

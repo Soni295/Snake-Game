@@ -10,25 +10,43 @@
     <h1>The Snake Game</h1>
 
     <div class="contenedor">
+      <div id="score"></div>
       <canvas width="500" height="500" id="screen"></canvas>
+      <div id="info"></div>
     </div>
+
     <div class="modal" id="modal1">
       <div class="modal-content">
         <h2>You Lose</h2>
         <p>Do you want to try again?</p>
-        <button id="my-btn">Try Again</button>
+        <button id="btn" class="btn">Try Again</button>
       </div>
     </div>
     <div class="modal moral-start" id="modal2">
       <div class="modal-content modal-content-start">
         <h2></h2>
         <p>Click start</p>
-        <button id="my-btn-start">Start</button>
+        <div class="container">
+          <div class="custom-select" style="width: 200px;">
+            <h2>Speed</h2>
+            <select id="speed">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-start" id="btn-start">Start</button>
       </div>
     </div>
+    <!--
 
+    -->
     <script src="objects.js"></script>
-
     <script src="screen.js"></script>
+    <script src="set.js"></script>
+    <script src="game.js"></script>
   </body>
 </html>

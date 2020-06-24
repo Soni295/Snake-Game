@@ -1,14 +1,29 @@
 body {
   background: black;
+  color: white;
 }
+
 .contenedor {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+}
+
+.container {
   display: flex;
-  justify-content: center;
+}
+
+.container > * {
+  margin: auto;
+  margin-bottom: 3px;
+}
+
+#info {
+  font-size: larger;
 }
 canvas {
   background: transparent;
   border: 3px white solid;
-  justify-content: center;
+  margin: auto;
 }
 h1 {
   text-align: center;
@@ -27,6 +42,7 @@ h1 {
   overflow: auto;
   background-color: rgba(193, 48, 95, 0.14);
 }
+
 .modal-content {
   text-align: center;
   background: rgba(92, 14, 14, 0.479);
@@ -36,16 +52,16 @@ h1 {
   width: 400px;
   border-radius: 20px;
 }
-#modal2 {
-  display: block;
-}
+
 .moral-start {
   background-color: rgba(30, 54, 141, 0.14);
+  display: block;
 }
 
 .modal-content-start {
   background-color: blue;
 }
+
 .modal-content > p {
   color: rgb(255, 255, 255);
   font-size: 25px;
@@ -57,12 +73,23 @@ h1 {
   color: rgb(255, 255, 255);
 }
 
-#my-btn {
+.btn {
   background: #af6cb4;
-  border: none;
+  border: 2px solid rgb(255, 0, 0);
   margin: 10px;
   font-size: large;
   border-radius: 30px;
   width: 100px;
   height: 30px;
+}
+
+.btn-start {
+  background: #d93838;
+  color: wheat;
+}
+
+.btn-start:hover {
+  background: #a58366;
+  color: black;
+  border: rgb(104, 104, 185);
 }
