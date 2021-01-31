@@ -157,10 +157,9 @@ function Egg() {
     context.fillRect(this.x, this.y, scale, scale);
   };
 
-  this.eat = (food) => {
-    if (this.x === food.x && this.y === food.y) return true;
-    return false;
-  };
+  this.eat = food => 
+    this.x === food.x && this.y === food.y ? true : false
+
 }
 
 let snake = new Snake();
