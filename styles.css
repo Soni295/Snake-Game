@@ -1,35 +1,64 @@
+:root {
+  --white: #ffffff;
+  --bg-color: #000;
+}
 body {
-  background: black;
-  color: white;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  color: var(--white);
+  min-height: 100vh;
 }
-
+.desc {
+  font-size: 39px;
+  font-family: monospace;
+  color: #e305d1;
+  text-shadow: 0px 0px 28px #fb00ff, 0px 0px 4px #f6a4ff, 0px 0px 87px #ff00f7;
+}
+.desc:nth-child(1) {
+  justify-self: end;
+}
+.desc:nth-last-child(1){
+  justify-self: start;
+}
 .contenedor {
-  display: grid;
-  grid-template-columns: repeat(3, 33%);
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -250px;
 }
-
 .container {
   display: flex;
 }
-
 .container > * {
   margin: auto;
   margin-bottom: 3px;
 }
-
 #info {
   font-size: larger;
 }
 canvas {
   background: transparent;
-  border: 3px white solid;
+  border: 3px var(--white) solid;
   margin: auto;
+  transform: rotateX(40deg);
+  box-shadow: inset 0px -13px 37px 9px #0088ff, -1px -10px 13px 6px #0088ff, inset 0px 9px #343a61;
+}
+#title {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  box-shadow: 3px 41px 63px white;
+  align-items: center;
+  justify-items: center;
 }
 h1 {
+  font-family: system-ui;
+  font-size: 52px;
   text-align: center;
-  color: white;
+  color: aqua;
+  text-shadow: 0px 0px 2px black, 0px 0px 31px #00ffff;
 }
-
 .modal {
   display: none;
   position: fixed;
@@ -42,7 +71,6 @@ h1 {
   overflow: auto;
   background-color: rgba(193, 48, 95, 0.14);
 }
-
 .modal-content {
   text-align: center;
   background: rgba(92, 14, 14, 0.479);
@@ -52,27 +80,22 @@ h1 {
   width: 400px;
   border-radius: 20px;
 }
-
 .moral-start {
   background-color: rgba(30, 54, 141, 0.14);
   display: block;
 }
-
 .modal-content-start {
   background-color: blue;
 }
-
 .modal-content > p {
   color: rgb(255, 255, 255);
   font-size: 25px;
 }
-
 .modal-content > h2 {
   margin-top: 10px;
   font-size: xx-large;
   color: rgb(255, 255, 255);
 }
-
 .btn {
   background: #af6cb4;
   border: 2px solid rgb(255, 0, 0);
@@ -82,12 +105,10 @@ h1 {
   width: 100px;
   height: 30px;
 }
-
 .btn-start {
   background: #d93838;
   color: wheat;
 }
-
 .btn-start:hover {
   background: #a58366;
   color: black;

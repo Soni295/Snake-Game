@@ -1,5 +1,5 @@
 let score = document.getElementById("score");
-let info = document.getElementById("info");
+let info = document.getElementById("title");
 let data = { score: 0, speed: 0 };
 
 function firstSet() {
@@ -15,8 +15,9 @@ function infoSet() {
 
 function updateInfo() {
   info.innerHTML = `
-    <p>Score: ${data.score}</p>
-    <p>Speed: ${data.speed}</p>`;
+    <p class="desc">Score: ${data.score}</p>
+    <h1>The Snake Game</h1>
+    <p class="desc">Speed: ${data.speed}</p>`;
 }
 
 function punctuation() {
