@@ -50,8 +50,9 @@ function Snake() {
     }
   };
 
-  this.eat = (food) => {
-    if (this.position.x === food.x && this.position.y === food.y) {
+  this.eat = food => {
+    if (this.position.x === food.position.x && this.position.y ===
+      food.position.y) {
       this.ate++;
       return true;
     }
@@ -142,26 +143,5 @@ function Limited() {
     }
   };
 }
-
-function Egg() {
-  this.spawn = () => {
-    this.x =
-      scale * (Math.floor((Math.random() * screen.height) / scale - 1) + 1);
-    this.y =
-      scale * (Math.floor((Math.random() * screen.width) / scale - 1) + 1);
-    this.draw();
-  };
-
-  this.draw = (color = "#00ff14") => {
-    context.fillStyle = color;
-    context.fillRect(this.x, this.y, scale, scale);
-  };
-
-  this.eat = food => 
-    this.x === food.x && this.y === food.y ? true : false
-
-}
-
 let snake = new Snake();
-let egg = new Egg();
 let limited = new Limited();
