@@ -7,27 +7,18 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <main>
-        <p id='score' class="desc">Score: 0</p>
-        <h1>The Snake Game</h1>
-        <p id='speed' class="desc">Speed: 0</p>
-      <div class="contenedor">
-        <canvas width="500" height="500" id="screen"></canvas>
+    <main class="height-100">
+      <h1 class='aling-center'>The Snake Game</h1>
+      <div class='info width-100'>
+        <p id='score' class="aling-center">Score: 0</p>
+        <p id='speed' class="aling-center">Speed: 1</p>
       </div>
+      <canvas width="500" height="500" id="screen"></canvas>
     </main>
-    <div class="modal" id="modal1">
+    <div id="modal" class="width-100 height-100">
       <div class="modal-content">
-        <h2>You Lose</h2>
-        <p>Do you want to try again?</p>
-        <button id="btn" class="btn">Try Again</button>
-      </div>
-    </div>
-    <div class="modal moral-start" id="modal2">
-      <div class="modal-content modal-content-start">
-        <h2></h2>
-        <p>Click start</p>
+        <h2>Click start</h2>
         <div class="container">
-          <div class="custom-select" style="width: 200px;">
             <h2>Speed</h2>
             <select id="speedSelector">
               <option value="1">1</option>
@@ -36,7 +27,6 @@
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
-          </div>
         </div>
         <button class="btn btn-start" id="btn-start">Start</button>
       </div>

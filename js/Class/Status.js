@@ -7,7 +7,7 @@ class Status {
     this.eats = 0
   }
   updateInfo() {
-    this.difficulty.innerHTML = `Speed : ${this.data.speed}`
+    this.difficulty.innerHTML = `Speed: ${this.data.speed}`
     this.score.innerHTML = `Score: ${this.data.score}`
   }
   selectSpeed(){

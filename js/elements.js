@@ -6,8 +6,7 @@ const speedSelector = document.getElementById('speedSelector')
 // game
 const btnTryAgain = document.getElementById("btn")
 const btnStart = document.getElementById("btn-start")
-const launch = document.getElementById("modal2")
-const tryAgain = document.getElementById("modal1")
+const tryAgain = document.getElementById("modal")
 
 // screen
 const screen = document.getElementById("screen");
@@ -31,6 +30,5 @@ const rows = screen.height / scale;
 
 // hired modal
 const hireModal = () => {
-  launch.style.display = "none"
   tryAgain.style.display = "none"
 }
