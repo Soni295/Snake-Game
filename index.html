@@ -4,20 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Snake Game</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div id="title">
-      <p class="desc">Score: 0</p>
-      <h1>The Snake Game</h1>
-      <p class="desc">Speed: 0</p>
-    </div>
-    <div class="contenedor">
-      <div id="score"></div>
-      <canvas width="500" height="500" id="screen"></canvas>
-      <div id="info"></div>
-    </div>
-
+    <main>
+        <p id='score' class="desc">Score: 0</p>
+        <h1>The Snake Game</h1>
+        <p id='speed' class="desc">Speed: 0</p>
+      <div class="contenedor">
+        <canvas width="500" height="500" id="screen"></canvas>
+      </div>
+    </main>
     <div class="modal" id="modal1">
       <div class="modal-content">
         <h2>You Lose</h2>
@@ -32,7 +29,7 @@
         <div class="container">
           <div class="custom-select" style="width: 200px;">
             <h2>Speed</h2>
-            <select id="speed">
+            <select id="speedSelector">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -44,10 +41,17 @@
         <button class="btn btn-start" id="btn-start">Start</button>
       </div>
     </div>
+    <!---
+    <script src="set.js"></script>
     <script src="objects.js"></script>
     <script src="./js/Class/Egg.js"></script>
+    <script src="./js/Class/Snake.js"></script>
     <script src="screen.js"></script>
-    <script src="set.js"></script>
-    <script src="game.js"></script>
+-->
+    <script src="./js/elements.js"></script>
+    <script src="./js/Class/Egg.js"></script>
+    <script src="./js/Class/Limited.js"></script>
+    <script src="./js/Class/Status.js"></script>
+    <script src="./js/game.js"></script>
   </body>
 </html>

@@ -4,14 +4,15 @@ const newPosition = (size, {height, width}) => ({
 })
 
 class Egg {
+  constructor(scale, screen){
+    this.scale = scale
+    this.screen = screen
+  }
   spawn() {
-    this.position = newPosition(scale, screen)
+    this.position = newPosition(this.scale, this.screen)
     this.draw()
   }
   draw(color = "#00ff14") {
-    context.fillStyle = color
-    context.fillRect(this.position.x, this.position.y, scale, scale)
+    paintCanvas(this.position, color)
   }
 }
-
-let egg = new Egg()

@@ -1,9 +1,26 @@
-function game() {
-  limited.endGame = false;
+const snake = { start: () => console.log('hola')}
 
-  let run = setInterval(() => {
+const status = new Status()
+const egg = new Egg(scale, screen)
+const limited = new Limited(snake, egg)
+
+
+const newGame = () => {
+  hireModal()
+  status.selectSpeed()
+  clearCanvas()
+  limited.start()
+  game()
+}
+
+btnStart.onclick = () => newGame()
+
+function game() {
+  const run = setInterval(() => {
+    clearCanvas()
+    egg.draw()
+/*
     if (!snake.pause) {
-      context.clearRect(0, 0, screen.width, screen.height);
       egg.draw();
       snake.update();
       limited.iAmAlive(snake);
@@ -14,27 +31,22 @@ function game() {
         nextLevel(run, snake);
       }
 
-      console.log(fpmls);
       if (limited.endGame) {
         document.getElementById("speed").value = 1; //temporalmente
-
         clearInterval(run);
       }
     }
-  }, fpmls);
+*/
+  }, status.speed);
 }
 
+/*
 let newGame = () => {
   firstSet();
   limited.start(snake, egg);
 };
 
-const btnTryAgain = document.getElementById("btn");
-const btnStart = document.getElementById("btn-start");
 
-btnStart.onclick = () => {
-  newGame();
-};
 
 btnTryAgain.onclick = () => {
   newGame();
@@ -42,14 +54,10 @@ btnTryAgain.onclick = () => {
   resetPunctuation();
 };
 
-window.addEventListener("keydown", (e) => {
-  snake.turn(e.key);
-});
-
-function nextLevel(run, snake) {
-  clearInterval(run);
-  upgradeSpeed();
-  setTimeout(() => {
-    game();
-  }, 10);
+function nextLevel(run) {
+  clearInterval(run)
+  upgradeSpeed()
+  setTimeout(() => game(), 10)
 }
+
+*/
