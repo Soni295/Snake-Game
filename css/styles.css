@@ -103,21 +103,70 @@ canvas {
   margin: 42px 0px;
   font-size: 47px;
 }
-.btn {
-  background: #af6cb4;
+#btn-modal {
   border: 2px solid rgb(255, 0, 0);
   margin: 10px;
   font-size: large;
   border-radius: 30px;
   width: 100px;
   height: 30px;
-}
-.btn-start {
   background: #d93838;
   color: wheat;
 }
-.btn-start:hover {
+#btn-modal:hover {
   background: #a58366;
   color: black;
   border: rgb(104, 104, 185);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.has-fade {
+  visibility: visible;
+}
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fade-in 1300ms ease-in-out forwards;
+}
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+.fade-out {
+  animation: fade-out 1300ms ease-in-out forwards;
 }

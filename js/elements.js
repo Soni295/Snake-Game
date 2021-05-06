@@ -1,12 +1,8 @@
-// status
-const score = document.getElementById('score')
-const speed = document.getElementById('speed')
-const speedSelector = document.getElementById('speedSelector')
-
 // game
-const btnTryAgain = document.getElementById("btn")
-const btnStart = document.getElementById("btn-start")
-const tryAgain = document.getElementById("modal")
+/*
+const btnStart = document.getElementById("btn-modal")
+const modal = document.getElementById("modal")
+*/
 
 // screen
 const screen = document.getElementById("screen");
@@ -27,8 +23,11 @@ const scale = 20;
 // Escala del juego
 const column = screen.width / scale;
 const rows = screen.height / scale;
+/*
+const hireModal = () => modal.classList.add('fade-out')
 
-// hired modal
-const hireModal = () => {
-  tryAgain.style.display = "none"
+const showModal = () => {
+  modal.classList.remove('fade-out')
+  modal.classList.add('fade-in')
 }
+*/

@@ -1,4 +1,3 @@
-
 class Snake {
   start() {
     this.body = [{ x: 0, y: 0 }]
@@ -75,8 +74,6 @@ class Snake {
     else if (arrow === "p") this.stop()
   }
 }
-
-let snake = new Snake()
 
 const allowKeys = [
   'ArrowUp',

@@ -1,17 +1,30 @@
-class CtrlElement {
-  constructor(element){
-    this.element = document.getElementById(element)
+class Element {
+  constructor(id){
+    this.element = document.getElementById(id)
+  }
+  getElement(){
+    return this.element.value
+  }
+  setElement(value){
+    this.element.innerHTML = value
+  }
+}
+
+
+
+class CtrlElement2 extends Element{
+ constructor(id){
+    super(id)
     this.data = 0
-    this.type =  element + `: `
+    this.type = id + `: `
     this.updateInfo()
   }
   handleData(value, set = false) {
-    console.log('set',  set, 'value', value)
     this.data = set ? value : this.data + value
     this.updateInfo()
   }
   updateInfo(){
-    this.element.innerHTML = this.type + this.data
+    this.setElement(this.type + this.data)
   }
   reset(){
     this.data = 0
@@ -19,16 +32,16 @@ class CtrlElement {
   }
 }
 
-class SelectSpeed {
-  constructor(){
-    this.element = document.getElementById('speedSelector')
+class SelectSpeed2 extends Element{
+  constructor(id='speedSelector'){
+    super(id)
   }
   getValue(){
-    return Number(this.element.value)
+    return Number(this.getElement())
   }
 }
 
-class Status {
+class Status2 {
   constructor(){
     this.score = new CtrlElement('score')
     this.difficulty = new CtrlElement('speed')

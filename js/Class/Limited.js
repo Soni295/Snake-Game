@@ -4,13 +4,7 @@ class Limited {
     this.egg = egg
     this.endGame = false;
   }
-  start(){
-    this.python.start();
-    this.egg.spawn()
-  }
-
 }
-
 
   /*
   this.iAmAlive = (python) => {
