@@ -4,6 +4,7 @@
   "description": "",
   "main": "./src/server.js",
   "scripts": {
+    "dev": "tsc --watch & nodemon ./src/server.js",
     "start": "npm run tsc && npm run run",
     "tsc": "tsc",
     "run": "node ./src/server.js"
@@ -13,5 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }

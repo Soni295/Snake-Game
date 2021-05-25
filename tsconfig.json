@@ -3,8 +3,9 @@
   "noImplicitAny": true,
   "removeComments": false,
   "preserveConstEnums": true,
-  "outDir": "./src/js/",
+  "outDir": "./src/static/js",
+  "module": "ES6",
   "sourceMap": true
 },
-  "include": ["src/static/ts/*/**"]
+  "include": ["./src/static/ts/**/*"]
 }

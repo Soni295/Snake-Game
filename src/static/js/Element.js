@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -12,19 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
-var HandleElement = /** @class */ (function () {
-    function HandleElement(id) {
-        this.element = document.getElementById(id);
-    }
-    HandleElement.prototype.getElement = function () {
-        return this.element.innerHTML;
-    };
-    HandleElement.prototype.setElement = function (value) {
-        this.element.innerHTML = value;
-    };
-    return HandleElement;
-}());
+import { HandleElement } from './HandleElement';
 var CtrlElement = /** @class */ (function (_super) {
     __extends(CtrlElement, _super);
     function CtrlElement(id) {
@@ -49,6 +36,5 @@ var CtrlElement = /** @class */ (function (_super) {
     };
     return CtrlElement;
 }(HandleElement));
-var score = new CtrlElement('score');
-var speed = new CtrlElement('speed');
+export { CtrlElement };
 //# sourceMappingURL=Element.js.map

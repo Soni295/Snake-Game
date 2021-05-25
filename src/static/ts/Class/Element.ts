@@ -1,34 +1,7 @@
-export interface IElement {
-  element: HTMLElement
-  getElement(): string
-  setElement(value: string): void
-}
+import { iCtrlElement } from './Interfaces'
+import { HandleElement } from './HandleElement'
 
-interface iCtrlElement extends IElement{
-  data: number
-  type: string
-  handleData(value: number, set: boolean): void
-  updateInfo(): void
-  reset(): void
-}
-
-class HandleElement implements IElement{
-  element: HTMLElement
-
-  constructor(id: string) {
-    this.element = document.getElementById(id)
-  }
-
-  getElement(): string {
-    return this.element.innerHTML
-  }
-
-  setElement(value: string): void {
-    this.element.innerHTML = value
-  }
-}
-
-class CtrlElement extends HandleElement implements iCtrlElement {
+export class CtrlElement extends HandleElement implements iCtrlElement {
   data: number
   type: string
 
@@ -54,6 +27,3 @@ class CtrlElement extends HandleElement implements iCtrlElement {
     this.updateInfo()
   }
 }
-
-const score:CtrlElement = new CtrlElement('score')
-const speed:CtrlElement = new CtrlElement('speed')

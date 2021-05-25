@@ -1,15 +1,3 @@
-class Canvas {
-  constructor(){
-    this.element = document.getElementById('screen')
-  }
-
-}
-
-
-
-
-
-
 class Modal {
   constructor(game){
     this.btn = document.getElementById('btn-modal')
