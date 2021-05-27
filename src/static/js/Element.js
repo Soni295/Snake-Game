@@ -12,29 +12,28 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import { HandleElement } from './HandleElement';
-var CtrlElement = /** @class */ (function (_super) {
-    __extends(CtrlElement, _super);
-    function CtrlElement(id) {
+var Counter = /** @class */ (function (_super) {
+    __extends(Counter, _super);
+    function Counter(id) {
         var _this = _super.call(this, id) || this;
         _this.data = 0;
         _this.type = id + ": ";
         _this.updateInfo();
         return _this;
     }
-    CtrlElement.prototype.handleData = function (value, set) {
+    Counter.prototype.handleData = function (value, set) {
         if (set === void 0) { set = false; }
         this.data = set ? value : this.data + value;
         this.updateInfo();
     };
-    CtrlElement.prototype.updateInfo = function () {
+    Counter.prototype.updateInfo = function () {
         var newState = this.type + this.data.toString();
-        this.setElement(newState);
+        this.setValueElement(newState);
     };
-    CtrlElement.prototype.reset = function () {
+    Counter.prototype.reset = function () {
         this.data = 0;
         this.updateInfo();
     };
-    return CtrlElement;
+    return Counter;
 }(HandleElement));
-export { CtrlElement };
-//# sourceMappingURL=Element.js.map
+export { Counter };

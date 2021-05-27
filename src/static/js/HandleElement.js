@@ -5,10 +5,9 @@ var HandleElement = /** @class */ (function () {
     HandleElement.prototype.getElement = function () {
         return this.element.innerHTML;
     };
-    HandleElement.prototype.setElement = function (value) {
+    HandleElement.prototype.setValueElement = function (value) {
         this.element.innerHTML = value;
     };
     return HandleElement;
 }());
 export { HandleElement };
-//# sourceMappingURL=HandleElement.js.map

@@ -1,12 +1,36 @@
-import { HandleElement } from './HandleElement'
-import { iElement } from './Interfaces'
+import { HandleElement, iHandleElement } from './HandleElement.js'
+import { Modal, iModal } from './Modal.js'
+import { iGame } from './Game.js'
+import { ID } from './id.js'
+
+export interface iHandleModal {
+  btn: iHandleElement
+  modal: iModal
+  game: iGame
+  start(): void
+  showModal(): void
+}
+
+export class HandleModal implements iHandleModal {
+  btn: iHandleElement
+  modal: iModal
+  game: iGame
+
+  constructor(game: iGame){
+    this.btn = new HandleElement(ID.BTN_MODAL)
+    this.modal = new Modal(ID.MODAL)
+    this.game = game
+    this.btn.element.onclick = () => this.start()
+  }
+
+  start(): void{
+    this.modal.hideElement()
+    console.log(this.game)
+  }
 
 
 
-export class HandleModal {
-  btn: iElement
-  constructor(){
-    this.btn = new HandleElement('btn-modal')
-    this.btn.element.onclick = () => console.log('hola')
+  showModal(): void{
+    this.modal.showElement()
   }
 }
