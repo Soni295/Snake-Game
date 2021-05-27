@@ -1,4 +1,4 @@
-import { character } from './Snake.js'
+import { position } from './Canvas.js'
 
 type iActionTypes = {
   ARROWUP: string
@@ -6,40 +6,25 @@ type iActionTypes = {
   ARROWLEFT: string
   ARROWRIGHT: string
 }
+
 export const actionTypes : iActionTypes= {
   ARROWUP: 'ArrowUP',
   ARROWDOWN: 'ArrowDown',
   ARROWLEFT: 'ArrowLeft',
   ARROWRIGHT: 'ArrowRight'
 }
-type iReducer = (state: character, scale: number) => character
 
-export const reducer: iReducer = (state, scale) => {
-  const head = {...state.body[0]}
+type iReducer = (state: position, action: {scale: number, type: string}) => position
 
-  const cases: any = {
-    [actionTypes.ARROWUP]: () => 1,
-    [actionTypes.ARROWDOWN]: () => 1,
-    [actionTypes.ARROWLEFT]: () => 1,
-    [actionTypes.ARROWRIGHT]: () => {
-      head.x += scale
-      return {...state, body: [head]}
-    },
+export const reducer: iReducer = (state, action) => {
+
+  interface iCases { [x: string]: () => position }
+
+  const cases: iCases = {
+    [actionTypes.ARROWUP]: () => ({...state, y: state.y + action.scale}),
+    [actionTypes.ARROWDOWN]: () => ({...state, y: state.y - action.scale}),
+    [actionTypes.ARROWLEFT]: () => ({...state, x: state.x - action.scale}),
+    [actionTypes.ARROWRIGHT]: () => ({...state, x: state.x + action.scale})
   }
-  /*
-  switch(state.direction){
-    case actionTypes.ARROWUP:
-      return {...state}
-    case actionTypes.ARROWDOWN:
-      return {...state}
-    case actionTypes.ARROWLEFT:
-      return {...state}
-    case actionTypes.ARROWRIGHT:
-      head.x += scale
-      return {...state, body:[head]}
-    default:
-      return {...state}
-  }
-  */
-  return cases[state.direction]()
+  return cases[action.type]() || {...state}
 }

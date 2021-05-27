@@ -17,6 +17,7 @@ export interface iSnake {
   update(): void
   move(): void
 }
+
 export class Snake implements iSnake {
   ate: number
   snake: character
@@ -32,7 +33,11 @@ export class Snake implements iSnake {
 
   start(): void {
     this.snake = {
-      body: [{x: 0, y: 0}],
+      body: [
+        {x: this.scale * 2, y: 0},
+        {x: this.scale , y: 0},
+        {x: 0, y: 0}
+      ],
       direction: 'ArrowRight'
     }
     this.ate = 3
@@ -46,14 +51,24 @@ export class Snake implements iSnake {
       this.screen.paintCanvas(snake, color)
     }
   }
+  generate(): void {
+    const tail: number = this.snake.body.length -1
+    const temp: any = this.snake.body.slice(0, tail)
+    this.snake.body = [this.snake.body[0]].concat(temp)
+  }
 
   update(): void {
     // for(let i=0; i< this.ate; i++){   }
+    this.generate()
     this.move()
     this.draw()
   }
 
   move(): void {
-    this.snake = reducer(this.snake, this.scale)
+    const action: {scale: number, type: string} = {
+      scale: this.scale,
+      type: this.snake.direction
+    }
+    this.snake.body[0] = reducer(this.snake.body[0],action)
   }
 }
