@@ -16,19 +16,20 @@ const colors: iColors ={
 }
 
 export interface iGame {
+
   status: iStatus
   canvas: iCanvas
   egg: iEgg
   snake: iSnake
   modal: iHandleModal
+  run: ReturnType<typeof setInterval> | null
+  pause: boolean
   start(): void
   playing(): void
-  pause: boolean
   pauseGame(): void
-  run: ReturnType<typeof setInterval> | null
 }
 
-class Game implements iGame {
+export class Game implements iGame {
   status: iStatus
   canvas: iCanvas
   egg: iEgg
@@ -67,9 +68,3 @@ class Game implements iGame {
     if(this.pause === false) this.playing()
   }
 }
-
-const game: iGame = new Game(scale)
-
-window.addEventListener("keydown", ({key}) => {
-  key === 'p' && game.pauseGame()
-})
