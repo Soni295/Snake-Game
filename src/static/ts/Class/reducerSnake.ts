@@ -17,6 +17,16 @@ type iReducer = (state: character, scale: number) => character
 export const reducer: iReducer = (state, scale) => {
   const head = {...state.body[0]}
 
+  const cases: any = {
+    [actionTypes.ARROWUP]: () => 1,
+    [actionTypes.ARROWDOWN]: () => 1,
+    [actionTypes.ARROWLEFT]: () => 1,
+    [actionTypes.ARROWRIGHT]: () => {
+      head.x += scale
+      return {...state, body: [head]}
+    },
+  }
+  /*
   switch(state.direction){
     case actionTypes.ARROWUP:
       return {...state}
@@ -30,4 +40,6 @@ export const reducer: iReducer = (state, scale) => {
     default:
       return {...state}
   }
+  */
+  return cases[state.direction]()
 }

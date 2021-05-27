@@ -1,5 +1,5 @@
 import { position, iCanvas } from './Canvas.js'
-import { actionTypes, reducer} from './reducerSnake.js'
+import { reducer } from './reducerSnake.js'
 
 export type character = {
   body: Array<position>

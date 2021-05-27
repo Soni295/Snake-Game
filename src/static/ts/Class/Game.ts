@@ -23,7 +23,9 @@ export interface iGame {
   modal: iHandleModal
   start(): void
   playing(): void
-  pause(): void
+  pause: boolean
+  pauseGame(): void
+  run: ReturnType<typeof setInterval> | null
 }
 
 class Game implements iGame {
@@ -33,6 +35,7 @@ class Game implements iGame {
   snake: iSnake
   modal: iHandleModal
   run: ReturnType<typeof setInterval> | null
+  pause: boolean
 
   constructor(scale: number){
     this.status = new Status()
@@ -40,6 +43,7 @@ class Game implements iGame {
     this.egg = new Egg(this.canvas)
     this.snake = new Snake(this.canvas, scale)
     this.modal = new HandleModal(this)
+    this.pause = false
     this.run = null
   }
 
@@ -50,31 +54,22 @@ class Game implements iGame {
   }
 
   playing(): void {
-    if(!this.run){
-      this.run = setInterval(()=> {
-        this.canvas.clearCanvas()
-        this.snake.update()
-        this.egg.draw()
-      }, 500)// modificar
-    }
+    this.run = setInterval(()=> {
+      this.pause && clearInterval(this.run)
+      this.canvas.clearCanvas()
+      this.snake.update()
+      this.egg.draw()
+    }, 500)// modificar
   }
 
-  pause(): void {
-    if(this.run !== null){
-      clearInterval(this.run)
-      this.run = null
-    }
+  pauseGame(): void {
+    this.pause = !this.pause
+    if(this.pause === false) this.playing()
   }
 }
 
 const game: iGame = new Game(scale)
 
-setTimeout(()=> {
-  game.pause()
-  console.log('pause')
-}, 5000)
-
-setTimeout(()=> {
-  game.playing()
-  console.log('start')
-}, 10000)
+window.addEventListener("keydown", ({key}) => {
+  key === 'p' && game.pauseGame()
+})
