@@ -5,7 +5,7 @@
   "main": "./src/server.js",
   "scripts": {
     "dev": "tsc --watch & nodemon ./src/server.js",
-    "start": "npm run tsc && npm run run",
+    "start": "node ./src/server.js",
     "tsc": "tsc",
     "run": "node ./src/server.js"
   },

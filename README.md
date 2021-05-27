@@ -2,6 +2,25 @@
 
 ## El juego de la serpiente de toda la vida.
 
+### First download from the repository 
+### install all dependencies
+
+
+```bash
+$ git clone https://github.com/Soni295/Snake-Game.git
+$ cd Snake-Game
+$ npm install
+```
+### use it which compile all file ".ts"
+
+```bash 
+$ npm tsc 
+```
+### and finally <code>$ npm start</code> for start the server on port 3000
+```bash 
+$ npm start 
+```
+
 ## Controles
 * flecha arriba.
 * flecha abajo.
