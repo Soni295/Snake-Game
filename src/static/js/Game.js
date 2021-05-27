@@ -15,6 +15,7 @@ var Game = /** @class */ (function () {
         this.egg = new Egg(this.canvas);
         this.snake = new Snake(this.canvas, scale);
         this.modal = new HandleModal(this);
+        this.pause = false;
         this.run = null;
     }
     Game.prototype.start = function () {
@@ -24,28 +25,22 @@ var Game = /** @class */ (function () {
     };
     Game.prototype.playing = function () {
         var _this = this;
-        if (!this.run) {
-            this.run = setInterval(function () {
-                _this.canvas.clearCanvas();
-                _this.snake.update();
-                _this.egg.draw();
-            }, 500); // modificar
-        }
+        this.run = setInterval(function () {
+            _this.pause && clearInterval(_this.run);
+            _this.canvas.clearCanvas();
+            _this.snake.update();
+            _this.egg.draw();
+        }, 500); // modificar
     };
-    Game.prototype.pause = function () {
-        if (this.run !== null) {
-            clearInterval(this.run);
-            this.run = null;
-        }
+    Game.prototype.pauseGame = function () {
+        this.pause = !this.pause;
+        if (this.pause === false)
+            this.playing();
     };
     return Game;
 }());
 var game = new Game(scale);
-setTimeout(function () {
-    game.pause();
-    console.log('pause');
-}, 5000);
-setTimeout(function () {
-    game.playing();
-    console.log('start');
-}, 10000);
+window.addEventListener("keydown", function (_a) {
+    var key = _a.key;
+    key === 'p' && game.pauseGame();
+});
