@@ -1,36 +1,59 @@
 import { position, iCanvas } from './Canvas.js'
+import { actionTypes, reducer} from './reducerSnake.js'
+
+export type character = {
+  body: Array<position>
+  direction: string
+}
 
 export interface iSnake {
-  body: Array<position>
-  tail: Array<position>
+  snake: character
   screen: iCanvas
   pause: boolean
+  scale: number
   ate: number
   start(): void
   draw(color: string): void
+  update(): void
+  move(): void
 }
-
 export class Snake implements iSnake {
-  body: Array<position>
   ate: number
-  tail: Array<position>
+  snake: character
   pause: boolean
+  scale: number
   screen: iCanvas
+  direction: any
 
-  constructor(screen: iCanvas){
+  constructor(screen: iCanvas, scale: number){
     this.screen = screen
+    this.scale = scale
   }
 
   start(): void {
-    this.body = [{x: 0, y: 0}]
+    this.snake = {
+      body: [{x: 0, y: 0}],
+      direction: 'ArrowRight'
+    }
     this.ate = 3
-    this.tail = []
+    this.direction = ''
     this.pause = false
+    this.draw()
   }
 
   draw(color: string='#FFFFFF'): void {
-    for(const snake of this.body) {
+    for(const snake of this.snake.body){
       this.screen.paintCanvas(snake, color)
     }
+  }
+
+  update(): void {
+    // for(let i=0; i< this.ate; i++){   }
+    this.move()
+    this.draw()
+  }
+
+  move(): void {
+    this.snake = reducer(this.snake, this.scale)
   }
 }

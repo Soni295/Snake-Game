@@ -11,7 +11,7 @@ var HandleModal = /** @class */ (function () {
     }
     HandleModal.prototype.start = function () {
         this.modal.hideElement();
-        console.log(this.game);
+        this.game.start();
     };
     HandleModal.prototype.showModal = function () {
         this.modal.showElement();

@@ -25,11 +25,8 @@ export class HandleModal implements iHandleModal {
 
   start(): void{
     this.modal.hideElement()
-    console.log(this.game)
+    this.game.start()
   }
-
-
-
   showModal(): void{
     this.modal.showElement()
   }
