@@ -4,19 +4,7 @@ import { Egg, iEgg } from './Egg.js'
 import { Canvas, iCanvas } from './Canvas.js'
 import { Snake, iSnake } from './Snake.js'
 
-const scale: number = 20
-
-interface iColors {
-  snakeColor: string
-  eggColor: string
-}
-const colors: iColors ={
-  snakeColor: '#FFFFFF',
-  eggColor: '#00ff14'
-}
-
 export interface iGame {
-
   status: iStatus
   canvas: iCanvas
   egg: iEgg
@@ -27,6 +15,7 @@ export interface iGame {
   start(): void
   playing(): void
   pauseGame(): void
+  turn(key: string): void
 }
 
 export class Game implements iGame {
@@ -65,6 +54,10 @@ export class Game implements iGame {
 
   pauseGame(): void {
     this.pause = !this.pause
-    if(this.pause === false) this.playing()
+    this.pause === false && this.playing()
+  }
+
+  turn(key: string): void{
+    this.snake.turn(key)
   }
 }

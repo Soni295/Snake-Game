@@ -16,6 +16,7 @@ export interface iSnake {
   draw(color: string): void
   update(): void
   move(): void
+  turn(key: string): void
 }
 
 export class Snake implements iSnake {
@@ -70,5 +71,9 @@ export class Snake implements iSnake {
       type: this.snake.direction
     }
     this.snake.body[0] = reducer(this.snake.body[0],action)
+  }
+  turn(key: string) {
+    this.snake.direction = key
+    console.log(key)
   }
 }
