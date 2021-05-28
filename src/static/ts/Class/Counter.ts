@@ -3,7 +3,7 @@ import { HandleElement, iHandleElement } from './HandleElement.js'
 export interface iCounter extends iHandleElement {
   data: number
   type: string
-  handleData(value: number, set: boolean): void
+  handleData(value: number, set?: boolean): void
   updateInfo(): void
   reset(): void
 }

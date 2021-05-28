@@ -1,14 +1,11 @@
 interface iID {
-  SCORE: string
-  SPEED: string
-  SCREEN: string
-  MODAL: string
-  BTN_MODAL: string
+  [x: string]: string
 }
 export const ID: iID = {
   SCORE: 'score',
   SPEED: 'speed',
   SCREEN: 'screen',
   MODAL: 'modal',
-  BTN_MODAL: 'btn-modal'
+  BTN_MODAL: 'btn-modal',
+  SPEED_SELECTOR: 'speed-selector'
 }

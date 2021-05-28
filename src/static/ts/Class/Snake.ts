@@ -42,7 +42,7 @@ export class Snake implements iSnake {
       ],
       direction: 'ArrowRight'
     }
-    this.ate = 3
+    this.ate = 0
     this.direction = ''
     this.pause = false
     this.draw()

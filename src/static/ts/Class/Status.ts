@@ -4,6 +4,8 @@ import { ID } from './id.js'
 export interface iStatus {
   score: iCounter
   speed: iCounter
+  eat(eggs: number) : void
+  setSpeed(num: number): void
 }
 
 export class Status implements iStatus {
@@ -14,5 +16,14 @@ export class Status implements iStatus {
   constructor() {
     this.score = new Counter(ID.SCORE)
     this.speed = new Counter(ID.SPEED)
+  }
+
+  eat(eggs: number){
+    if(eggs % 5 === 0) this.speed.handleData(1)
+    this.score.handleData(this.speed.data * 5)
+  }
+
+  setSpeed(num: number): void {
+    this.speed.handleData(num, true)
   }
 }
