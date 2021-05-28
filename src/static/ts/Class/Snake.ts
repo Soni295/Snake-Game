@@ -17,6 +17,7 @@ export interface iSnake {
   update(): void
   move(): void
   turn(key: string): void
+  eat(): void
 }
 
 export class Snake implements iSnake {
@@ -59,7 +60,6 @@ export class Snake implements iSnake {
   }
 
   update(): void {
-    // for(let i=0; i< this.ate; i++){   }
     this.generate()
     this.move()
     this.draw()
@@ -74,6 +74,9 @@ export class Snake implements iSnake {
   }
   turn(key: string) {
     this.snake.direction = key
-    console.log(key)
+  }
+  eat(): void {
+    this.ate++
+    this.snake.body[this.snake.body.length] = this.snake.body[this.snake.body.length - 1 ]
   }
 }

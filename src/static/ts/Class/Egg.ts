@@ -6,6 +6,7 @@ export interface iEgg {
   position?: position
   spawn(): void
   draw(color? : string): void
+  eat(): void
 }
 
 const newPosition = (size: number, {height, width}: HTMLCanvasElement) => ({
@@ -22,11 +23,17 @@ export class Egg implements iEgg {
     this.scale = screen.scale
     this.screen = screen
   }
+
   spawn(): void {
     this.position = newPosition(this.scale, this.screen.canvas)
     this.draw()
   }
+
   draw(color: string = "#00ff14") {
     this.screen.paintCanvas(this.position, color)
+  }
+
+  eat(): void {
+    this.spawn()
   }
 }
