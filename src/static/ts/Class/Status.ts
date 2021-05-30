@@ -6,6 +6,8 @@ export interface iStatus {
   speed: iCounter
   eat(eggs: number) : void
   setSpeed(num: number): void
+  getSpeed(): number
+  reset(): void
 }
 
 export class Status implements iStatus {
@@ -25,5 +27,11 @@ export class Status implements iStatus {
 
   setSpeed(num: number): void {
     this.speed.handleData(num, true)
+  }
+  getSpeed(): number{
+    return this.speed.getData()
+  }
+  reset(): void {
+    this.score.reset()
   }
 }

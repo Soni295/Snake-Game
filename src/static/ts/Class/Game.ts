@@ -19,6 +19,8 @@ export interface iGame {
   pauseGame(): void
   turn(key: string): void
   eat(): void
+  endGame(): void
+  updateSpeed(): void
 }
 
 export class Game implements iGame {
@@ -45,31 +47,44 @@ export class Game implements iGame {
   start(): void {
     this.egg.spawn()
     this.snake.start()
-    this.playing()
     this.status.setSpeed(this.modal.selectSpeed())
+    this.playing()
+  }
+
+  updateSpeed(): void {
+    clearInterval(this.run)
+    this.playing()
   }
 
   playing(): void {
     this.run = setInterval(()=> {
       this.rules.check()
-      this.pause && clearInterval(this.run)
       this.canvas.clearCanvas()
       this.egg.draw()
       this.snake.update()
-    }, 200)// modificar
+    }, 1000 / this.status.getSpeed())// modificar
+  }
+
+  endGame(): void {
+    clearInterval(this.run)
+    this.modal.showModal()
+    this.canvas.clearCanvas()
+    this.status.reset()
   }
 
   pauseGame(): void {
     this.pause = !this.pause
-    this.pause === false && this.playing()
+    this.pause ? clearInterval(this.run) : this.playing()
   }
 
   turn(key: string): void{
     this.snake.turn(key)
   }
+
   eat(): void {
     this.snake.eat()
     this.egg.eat()
     this.status.eat(this.snake.ate)
+    this.updateSpeed()
   }
 }

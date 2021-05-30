@@ -6,6 +6,7 @@ export interface iCounter extends iHandleElement {
   handleData(value: number, set?: boolean): void
   updateInfo(): void
   reset(): void
+  getData(): number
 }
 
 export class Counter extends HandleElement implements iCounter{
@@ -22,6 +23,9 @@ export class Counter extends HandleElement implements iCounter{
   handleData(value: number, set: boolean=false): void {
     this.data = set ? value : this.data + value
     this.updateInfo()
+  }
+  getData(): number{
+    return this.data
   }
 
   updateInfo(): void {

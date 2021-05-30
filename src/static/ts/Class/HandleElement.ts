@@ -17,7 +17,6 @@ export class HandleElement implements iHandleElement{
   getValue(): any{
     return this.element.value
   }
-
   setValueElement(value: string): void {
     this.element.innerHTML = value
   }
