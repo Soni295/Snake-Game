@@ -16,11 +16,6 @@
   transform: translate(-20px, 6px);
   border-radius: 63px 50px 0px 0px;
 }
-
-.lever > span:hover {
-  transform: rotate(315deg) translateX(-13px) translateY(-10px);
-}
-
 .lever::before {
   content: '';
   position: absolute;
@@ -31,8 +26,4 @@
   transform: translate(-8px, -31px);
   border-radius: 100%;
   margin: auto;
-}
-.lever:hover {
-  transform: rotate(45deg) translateX(10px);
-  z-index: 2;
 }
