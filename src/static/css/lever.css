@@ -1,0 +1,38 @@
+.lever {
+  position: relative;
+  height: 45px;
+  width: 15px;
+  margin: auto;
+  background: #1e1e1b;
+  margin-bottom: 8px;
+}
+.lever > span {
+  content: '';
+  position: absolute;
+  background-color: #3d391f;
+  height: 17px;
+  width: 53px;
+  bottom: 0;
+  transform: translate(-20px, 6px);
+  border-radius: 63px 50px 0px 0px;
+}
+
+.lever > span:hover {
+  transform: rotate(315deg) translateX(-13px) translateY(-10px);
+}
+
+.lever::before {
+  content: '';
+  position: absolute;
+  background-color: #580909;
+  height: 30px;
+  width: 30px;
+  bottom: 0;
+  transform: translate(-8px, -31px);
+  border-radius: 100%;
+  margin: auto;
+}
+.lever:hover {
+  transform: rotate(45deg) translateX(10px);
+  z-index: 2;
+}

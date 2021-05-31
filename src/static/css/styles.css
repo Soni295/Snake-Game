@@ -1,3 +1,5 @@
+@import "./lever.css";
+
 :root {
   --white: #fff;
   --dark: #000;
@@ -132,7 +134,10 @@ canvas {
   color: var(--dark);
   border: rgb(104, 104, 185);
 }
-
+.base {
+  height: 30px;
+  box-shadow: -1px 5px 20px 0px var(--light-white);
+}
 .has-fade {
   visibility: visible;
 }
@@ -170,3 +175,5 @@ canvas {
 .fade-out {
   animation: fade-out 1300ms ease-in-out forwards;
 }
+
+
