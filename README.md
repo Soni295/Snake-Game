@@ -1,6 +1,5 @@
 # Snake Game
 
-## El juego de la serpiente de toda la vida.
 
 ### First download from the repository 
 ### install all dependencies
@@ -21,16 +20,19 @@ $ npm tsc
 $ npm start 
 ```
 
-## Controles
-* flecha arriba.
-* flecha abajo.
-* flecha izquierda.
-* flecha derecha.
-* P para pausar el juego.
+## Controls
+* arrow Up
+* arrow Down
+* arrow Left
+* arrow Right
+* P for pause the game
 
-## Jugabilidad
-* Se puede seleccionar la velocidad al empezar.
-* Segun la dificultadad es mayor los puntos recibidos por manzana.
-* La velocidad aumentara gradualmente.
 
-[Click para empezar](https://soni295.github.io/Snake-Game/)
+## Gameplay
+* You can select the speed when starting.
+* According to the difficulty, the points received per block are higher.
+* The speed will gradually increase. 
+
+[Click here to start](https://soni295.github.io/Snake-Game/)
+
+![Snake Game](./img/reference.png)
