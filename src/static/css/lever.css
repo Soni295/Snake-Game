@@ -1,3 +1,7 @@
+:root {
+  --ball-down: -31px
+}
+
 .lever {
   position: relative;
   height: 45px;
@@ -23,7 +27,7 @@
   height: 30px;
   width: 30px;
   bottom: 0;
-  transform: translate(-8px, -31px);
+  transform: translate(-8px, var(--ball-down));
   border-radius: 100%;
   margin: auto;
 }

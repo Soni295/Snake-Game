@@ -120,19 +120,20 @@ canvas {
   font-size: 47px;
 }
 #btn-modal {
-  border: 2px solid rgb(255, 0, 0);
+  border: 1px solid #ff0000;
   margin: 10px;
-  font-size: large;
-  border-radius: 30px;
-  width: 100px;
-  height: 30px;
-  background: #d93838;
+  font-size: 30px;
+  border-radius: 27px;
+  width: 102px;
+  height: 48px;
+  background: #5a1414;
   color: wheat;
+  transition: 500ms;
 }
 #btn-modal:hover {
-  background: #a58366;
+  background: #9e2626;
   color: var(--dark);
-  border: rgb(104, 104, 185);
+  border: #ff0000;
 }
 .base {
   height: 30px;
