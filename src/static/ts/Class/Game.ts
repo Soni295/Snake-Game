@@ -45,6 +45,7 @@ export class Game implements iGame {
   }
 
   start(): void {
+    this.canvas.clearCanvas()
     this.egg.spawn()
     this.snake.start()
     this.status.setSpeed(this.modal.selectSpeed())
@@ -62,13 +63,12 @@ export class Game implements iGame {
       this.canvas.clearCanvas()
       this.egg.draw()
       this.snake.update()
-    }, 1000 / this.status.getSpeed())// modificar
+    }, 1000 / this.status.getSpeed())
   }
 
   endGame(): void {
     clearInterval(this.run)
     this.modal.showModal()
-    this.canvas.clearCanvas()
     this.status.reset()
   }
 
