@@ -12,6 +12,7 @@ export interface iSnake {
   pause: boolean
   scale: number
   ate: number
+  arrow: string
   start(): void
   draw(color: string): void
   update(): void
@@ -27,6 +28,7 @@ export class Snake implements iSnake {
   scale: number
   screen: iCanvas
   direction: any
+  arrow: string
 
   constructor(screen: iCanvas, scale: number){
     this.screen = screen
@@ -37,12 +39,13 @@ export class Snake implements iSnake {
     this.snake = {
       body: [
         {x: this.scale * 2, y: 0},
-        {x: this.scale , y: 0},
+        {x: this.scale, y: 0},
         {x: 0, y: 0}
       ],
       direction: 'ArrowRight'
     }
     this.ate = 0
+    this.arrow = 'ArrowRight'
     this.direction = ''
     this.pause = false
     this.draw()
@@ -68,12 +71,13 @@ export class Snake implements iSnake {
   move(): void {
     const action: {scale: number, type: string} = {
       scale: this.scale,
-      type: this.snake.direction
+      type: this.arrow
     }
-    this.snake.body[0] = reducer(this.snake.body[0],action)
+    //this.snake.body[0] = reducer(head, neck, action)
+    this.snake = reducer(this.snake ,action)
   }
   turn(key: string) {
-    this.snake.direction = key
+    this.arrow = key
   }
   eat(): void {
     this.ate++
