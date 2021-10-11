@@ -7,13 +7,15 @@
     "dev": "tsc --watch & nodemon ./src/server.js",
     "start": "node ./src/server.js",
     "tsc": "tsc",
-    "run": "node ./src/server.js"
+    "run": "node ./src/server.js",
+    "build": "rollup ./src/static/js/index.js --format iife --file ./src/build/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "rollup": "^2.58.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
