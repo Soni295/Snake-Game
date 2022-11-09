@@ -5,6 +5,7 @@
   "main": "./src/server.js",
   "scripts": {
     "dev": "tsc --watch & nodemon ./src/server.js",
+    "build": "tsc",
     "start": "node ./src/server.js",
     "tsc": "tsc",
     "run": "node ./src/server.js"
@@ -16,6 +17,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "typescript": "^4.8.4"
   }
 }

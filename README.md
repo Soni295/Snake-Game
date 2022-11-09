@@ -1,7 +1,7 @@
 # Snake Game
 
 
-### First download from the repository 
+### First download from the repository
 ### install all dependencies
 
 
@@ -12,12 +12,12 @@ $ npm install
 ```
 ### use it which compile all file ".ts"
 
-```bash 
-$ npm tsc 
+```bash
+$  npm run build
 ```
 ### and finally <code>$ npm start</code> for start the server on port 3000
-```bash 
-$ npm start 
+```bash
+$ npm run start
 ```
 
 ## Controls
@@ -31,7 +31,7 @@ $ npm start
 ## Gameplay
 * You can select the speed when starting.
 * According to the difficulty, the points received per block are higher.
-* The speed will gradually increase. 
+* The speed will gradually increase.
 
 [Click here to start](https://soni295.github.io/Snake-Game/)
 
