@@ -1,11 +1,11 @@
 {
-"compilerOptions": {
-  "noImplicitAny": true,
-  "removeComments": false,
-  "preserveConstEnums": true,
-  "outDir": "./src/static/js",
-  "module": "ES6",
-  "sourceMap": false
-},
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "outDir": "./src/static/js",
+    "module": "ES6",
+    "sourceMap": false
+  },
   "include": ["./src/static/ts/**/*"]
 }

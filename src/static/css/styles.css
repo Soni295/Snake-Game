@@ -1,4 +1,4 @@
-@import "./lever.css";
+@import './lever.css';
 
 :root {
   --white: #fff;
@@ -15,7 +15,9 @@ body {
   background: var(--dark);
   color: var(--white);
 }
-*, *::before, *::after{
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 .aling-center {
@@ -31,9 +33,7 @@ h1 {
   font-family: system-ui;
   font-size: 54px;
   color: var(--light-blue);
-  text-shadow:
-    0px 0px 2px var(--dark),
-    0px 0px 31px var(--light-blue-shadow);
+  text-shadow: 0px 0px 2px var(--dark), 0px 0px 31px var(--light-blue-shadow);
 }
 h3 {
   font-size: 42px;
@@ -54,20 +54,16 @@ main {
 .info {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  box-shadow:
-    1px 20px 20px 0px var(--light-pink),
+  box-shadow: 1px 20px 20px 0px var(--light-pink),
     inset 0px -2px 12px 0px var(--light-pink-shadow);
 }
 
-.info > *{
+.info > * {
   margin: 32px 0px;
   font-size: 37px;
   font-family: monospace;
   color: var(--light-pink);
-  text-shadow:
-    0px 0px 28px #fb00ff,
-    0px 0px 4px #f6a4ff,
-    0px 0px 87px #ff00f7;
+  text-shadow: 0px 0px 28px #fb00ff, 0px 0px 4px #f6a4ff, 0px 0px 87px #ff00f7;
 }
 
 canvas {
@@ -75,9 +71,7 @@ canvas {
   backdrop-filter: blur(21px);
   border: 1px var(--white) solid;
   margin: 0 auto;
-  box-shadow:
-    inset 2px 0px 17px 9px #0088ff,
-    0px -9px 13px 8px #0088ff,
+  box-shadow: inset 2px 0px 17px 9px #0088ff, 0px -9px 13px 8px #0088ff,
     inset 0px 8px 20px 0px #343a61;
   transform: rotateX(48deg);
 }
@@ -109,7 +103,7 @@ canvas {
   background-color: #01013429;
 }
 .modal-content > * {
-  color: var(--white) ;
+  color: var(--white);
 }
 
 .modal-content > p {
@@ -176,5 +170,3 @@ canvas {
 .fade-out {
   animation: fade-out 1300ms ease-in-out forwards;
 }
-
-

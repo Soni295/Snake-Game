@@ -1,5 +1,5 @@
 interface iID {
-  [x: string]: string
+  [x: string]: string;
 }
 export const ID: iID = {
   SCORE: 'score',
@@ -7,5 +7,5 @@ export const ID: iID = {
   SCREEN: 'screen',
   MODAL: 'modal',
   BTN_MODAL: 'btn-modal',
-  SPEED_SELECTOR: 'speed-selector'
-}
+  SPEED_SELECTOR: 'speed-selector',
+};

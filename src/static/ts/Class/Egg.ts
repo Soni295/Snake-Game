@@ -1,39 +1,39 @@
-import { iCanvas, position } from './Canvas.js'
+import { iCanvas, position } from './Canvas.js';
 
 export interface iEgg {
-  scale: number
-  screen: iCanvas
-  position?: position
-  spawn(): void
-  draw(color? : string): void
-  eat(): void
+  scale: number;
+  screen: iCanvas;
+  position?: position;
+  spawn(): void;
+  draw(color?: string): void;
+  eat(): void;
 }
 
-const newPosition = (size: number, {height, width}: HTMLCanvasElement) => ({
-  x: size * (Math.floor((Math.random() * height)/ size -1) +1),
-  y: size * (Math.floor((Math.random() * width)/ size -1) +1)
-})
+const newPosition = (size: number, { height, width }: HTMLCanvasElement) => ({
+  x: size * (Math.floor((Math.random() * height) / size - 1) + 1),
+  y: size * (Math.floor((Math.random() * width) / size - 1) + 1),
+});
 
 export class Egg implements iEgg {
-  scale: number
-  screen: iCanvas
-  position?: position
+  scale: number;
+  screen: iCanvas;
+  position?: position;
 
-  constructor(screen: iCanvas){
-    this.scale = screen.scale
-    this.screen = screen
+  constructor(screen: iCanvas) {
+    this.scale = screen.scale;
+    this.screen = screen;
   }
 
   spawn(): void {
-    this.position = newPosition(this.scale, this.screen.canvas)
-    this.draw()
+    this.position = newPosition(this.scale, this.screen.canvas);
+    this.draw();
   }
 
-  draw(color: string = "#00ff14") {
-    this.screen.paintCanvas(this.position, color)
+  draw(color: string = '#00ff14') {
+    this.screen.paintCanvas(this.position, color);
   }
 
   eat(): void {
-    this.spawn()
+    this.spawn();
   }
 }
